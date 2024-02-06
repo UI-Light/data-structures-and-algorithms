@@ -20,7 +20,7 @@ class InsertInArr {
   //method to grow/double size of array
   void growSize() {
     var temp = List<int>.filled(size * 2, 0); //new array with size doubled
-    for (int i = 0; i < size - 1; i++) {
+    for (int i = 0; i < size; i++) {
       //for every element in arr,
       temp[i] = arr[i]; //copy to new array temp
     }
