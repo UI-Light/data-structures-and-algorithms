@@ -31,16 +31,15 @@ class InsertInArr {
 
 //function to insert an element at a given index
   List<int> insertAtIndex(int index, int x) {
-    if (count == size) {
-      growSize();
+    if (index < size) {
+      for (int i = count - 1; i >= index; i--) {
+        arr[i + 1] = arr[i]; //moving the elements to the next index
+      }
+      arr[index] = x; //add new element at given index
+      count++;
+    } else {
+      return arr;
     }
-    for (int i = count - 1; i >= index; i--) {
-      arr[i + 1] = arr[i]; //moving the elements to the next index
-    }
-
-    arr[index] = x; //add new element at given index
-    count++;
-
     return arr;
   }
 }
@@ -53,7 +52,13 @@ void main() {
   print(insert.add(8));
   print(insert.add(10));
   print(insert.add(12));
+  print(insert.insertAtIndex(10, 14));
+  print(insert.insertAtIndex(3, 14));
+  print(insert.insertAtIndex(0, 12));
+  print(insert.insertAtIndex(1, 13));
   print(insert.insertAtIndex(2, 14));
+  print(insert.insertAtIndex(3, 15));
+
   print(insertAtTheEnd([2, 1, 3, 6, 7, 4, 5, 9], 11));
 }
 
